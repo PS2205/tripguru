@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TripGenius - Modern AI Travel Planner</title>
+  <!-- SEO Tags -->
+  <meta name="description" content="Generate highly personalized travel itineraries with Gemini AI. Plan your transport, local cuisine, packing lists, hidden gems, and manage trips with Firebase.">
+  <meta name="keywords" content="AI Travel Planner, Trip Genius, India Tourism, Goa Itinerary, Manali Itinerary, Jaipur Heritage, Kerala Backwaters, Travel SaaS">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+  <!-- Fixed Immersive Scroll Storytelling Background Container (Indian Destinations) -->
+  <div class="story-background-container" id="story-bg-container">
+    <div class="story-bg-slide active" id="story-bg-goa" style="background-image: url('https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1600&q=80');"></div>
+    <div class="story-bg-slide" id="story-bg-manali" style="background-image: url('https://images.unsplash.com/photo-1626621341515-bbf8a96e9859?auto=format&fit=crop&w=1600&q=80');"></div>
+    <div class="story-bg-slide" id="story-bg-jaipur" style="background-image: url('https://images.unsplash.com/photo-1477584305590-3a557efdf69b?auto=format&fit=crop&w=1600&q=80');"></div>
+    <div class="story-bg-slide" id="story-bg-kerala" style="background-image: url('https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&w=1600&q=80');"></div>
+    <div class="story-bg-slide" id="story-bg-ladakh" style="background-image: url('https://images.unsplash.com/photo-1597074866923-dc0589150358?auto=format&fit=crop&w=1600&q=80');"></div>
+  </div>
+
+  <!-- Global Ambient Background Elements for Premium SaaS Look -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Header Shell -->
+  <header class="app-header">
+    <div class="header-container">
+      <a href="#/" class="app-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="logo-icon">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+        </svg>
+        <span>Trip<span class="gradient-text">Genius</span></span>
+      </a>
+
+      <nav class="app-nav" id="nav-links">
+        <a href="#/" class="nav-link active" data-page="landing">Home</a>
+        <a href="#/plan" class="nav-link" data-page="planner">Plan Trip</a>
+        <a href="#/dashboard" class="nav-link" data-page="dashboard" id="nav-dashboard">My Trips</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Special Demo Trigger -->
+        <a href="#/trip?demo=goa" class="premium-btn btn-small award-winning-demo-btn" id="header-demo-btn" style="animation: goldPulse 2s infinite; text-decoration: none;" title="Launch preloaded sandbox demo plan instantly">
+          🏆 Try Demo
+        </a>
+
+        <!-- Settings Trigger -->
+        <button class="icon-button" id="settings-btn" title="API & Firebase Settings">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="icon-svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.43l-1.003.828c-.293.241-.438.613-.43.992a7.723 7.723 0 010 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.43l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.991l-1.004-.827a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.28z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </button>
+
+        <!-- Auth Button -->
+        <button class="premium-btn btn-small" id="auth-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="btn-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+          </svg>
+          <span id="auth-btn-text">Sign In</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Viewport Shell -->
+  <main id="app-content">
+    <!-- Component-based pages will render here dynamically -->
+    <div class="loader-container page-loader">
+      <div class="spinner"></div>
+      <p>Embarking on your journey...</p>
+    </div>
+  </main>
+
+  <!-- Footer Shell -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#/" class="app-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="logo-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+          </svg>
+          <span>Trip<span class="gradient-text">Genius</span></span>
+        </a>
+        <p>Premium AI-driven itinerary curation styled for modern explorers, tailored for India and the world.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>Explore</h4>
+          <a href="#/">Home</a>
+          <a href="#/plan">Plan Trip</a>
+          <a href="#/dashboard">Dashboard</a>
+        </div>
+        <div>
+          <h4>Sandbox Demos</h4>
+          <a href="#/trip?demo=goa">Goa (4 Days Budget)</a>
+          <a href="#/trip?demo=manali">Manali (5 Days Adventure)</a>
+          <a href="#/trip?demo=jaipur">Jaipur (3 Days Heritage)</a>
+          <a href="#/trip?demo=kerala">Kerala (6 Days Nature)</a>
+        </div>
+        <div>
+          <h4>Developer Settings</h4>
+          <a href="#" id="footer-settings-link">Configure Keys</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 TripGenius. Crafted for visual and operational excellence. Powered by Gemini Flash.</p>
+    </div>
+  </footer>
+
+  <!-- Developer Settings Panel Drawer Modal -->
+  <div class="modal-overlay hidden" id="settings-modal">
+    <div class="glass-modal settings-card animated-zoom">
+      <div class="modal-header">
+        <h3>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="modal-header-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.34 15.84c-.685-.396-1.114-1.117-1.114-1.91 0-.793.429-1.514 1.114-1.91l.083-.048c.685-.396 1.114-1.117 1.114-1.91V9.75c0-.793-.429-1.514-1.114-1.91l-.083-.048M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>API & Integration Settings</span>
+        </h3>
+        <button class="close-button" id="close-settings-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="settings-desc">To unlock real-time live AI generation and cloud database saves, input your API credentials below. Credentials are saved locally in your browser's encrypted sandbox.</p>
+        
+        <form id="settings-form">
+          <div class="form-group">
+            <label for="gemini-key">Gemini API Key</label>
+            <input type="password" id="gemini-key" placeholder="AIzaSy..." autocomplete="off">
+            <small class="form-hint">Obtain from Google AI Studio. Left blank, the application launches pre-programmed high-fidelity Indian sandbox plans.</small>
+          </div>
+
+          <div class="settings-divider">
+            <span>Firebase Configuration (Optional)</span>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="fb-apikey">API Key</label>
+              <input type="password" id="fb-apikey" placeholder="AIzaSy..." autocomplete="off">
+            </div>
+            <div class="form-group">
+              <label for="fb-authdomain">Auth Domain</label>
+              <input type="text" id="fb-authdomain" placeholder="your-app.firebaseapp.com">
+            </div>
+            <div class="form-group">
+              <label for="fb-projectid">Project ID</label>
+              <input type="text" id="fb-projectid" placeholder="your-project-id">
+            </div>
+            <div class="form-group">
+              <label for="fb-storage">Storage Bucket</label>
+              <input type="text" id="fb-storage" placeholder="your-app.appspot.com">
+            </div>
+          </div>
+          <small class="form-hint">Left blank, TripGenius auto-engages in <strong>Offline LocalStorage Sandbox Mode</strong> for storing/retrieving your trips.</small>
+
+          <div class="modal-actions">
+            <button type="button" class="action-btn secondary" id="clear-settings-btn">Reset Defaults</button>
+            <button type="submit" class="action-btn primary">Save Config</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Authentication Modal (Sign In / Sign Up) -->
+  <div class="modal-overlay hidden" id="auth-modal">
+    <div class="glass-modal auth-card animated-zoom">
+      <div class="modal-header">
+        <div class="auth-tabs">
+          <button class="auth-tab-btn active" id="tab-login">Sign In</button>
+          <button class="auth-tab-btn" id="tab-signup">Register</button>
+        </div>
+        <button class="close-button" id="close-auth-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        
+        <!-- Login Form -->
+        <form id="login-form">
+          <div class="form-group">
+            <label for="login-email">Email Address</label>
+            <input type="email" id="login-email" required placeholder="name@example.com">
+          </div>
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" required placeholder="••••••••">
+          </div>
+          <button type="submit" class="premium-btn w-full">Sign In to Dashboard</button>
+        </form>
+
+        <!-- Signup Form -->
+        <form id="signup-form" class="hidden">
+          <div class="form-group">
+            <label for="signup-name">Full Name</label>
+            <input type="text" id="signup-name" required placeholder="Aditya Sharma">
+          </div>
+          <div class="form-group">
+            <label for="signup-email">Email Address</label>
+            <input type="email" id="signup-email" required placeholder="name@example.com">
+          </div>
+          <div class="form-group">
+            <label for="signup-password">Password</label>
+            <input type="password" id="signup-password" required placeholder="••••••••">
+          </div>
+          <button type="submit" class="premium-btn w-full">Create Account</button>
+        </form>
+
+        <p class="auth-disclaimer" id="auth-sandbox-note">Note: If Firebase isn't configured, sandbox mode automatically simulates local profiles to let you experience the saved trip dashboards!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Toast Notifications system -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Floating AI Assistant Chatbot -->
+  <div class="chatbot-bubble" id="chatbot-bubble" title="Ask AI Travel Assistant">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:1.5rem; height:1.5rem;">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a.75.75 0 01-1.074-.765 5.999 5.999 0 013.823-4.722 8.981 8.981 0 01-1.409-4.233C6.75 6.694 10.78 3 15.75 3S21 6.694 21 11.25z" />
+    </svg>
+  </div>
+  
+  <div class="chatbot-container hidden" id="chatbot-container">
+    <div class="chatbot-header">
+      <h3>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:1.2rem; height:1.2rem; color:var(--color-accent-orange);">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 21l8.904-4.473L21 21l-1.187-5.096A9.75 9.75 0 109.813 15.904z" />
+        </svg>
+        <span>AI Travel Assistant</span>
+      </h3>
+      <button class="chatbot-close-btn" id="chatbot-close-btn">&times;</button>
+    </div>
+    
+    <div class="chatbot-messages" id="chatbot-messages">
+      <div class="chat-msg bot">
+        Namaste! I am your AI Travel Assistant. How can I help you customize or plan your perfect trip today?
+      </div>
+    </div>
+    
+    <div class="chatbot-suggestions" id="chatbot-suggestions">
+      <button data-q="What should I pack?">🎒 What should I pack?</button>
+      <button data-q="Is this destination family friendly?">👨‍👩‍👧 Family friendly?</button>
+      <button data-q="How much cash should I carry?">💵 Cash to carry?</button>
+    </div>
+    
+    <form class="chatbot-input-area" id="chatbot-input-form">
+      <input type="text" id="chatbot-input" placeholder="Ask anything about your destination..." autocomplete="off">
+      <button type="submit">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" style="width:1.1rem; height:1.1rem;">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+        </svg>
+      </button>
+    </form>
+  </div>
+
+  <!-- Application Code Scripts -->
+  <script src="firebase-config.js"></script>
+  <script src="gemini-api.js"></script>
+  <script src="pages/landing.js"></script>
+  <script src="pages/planner.js"></script>
+  <script src="pages/trip.js"></script>
+  <script src="pages/dashboard.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
